@@ -30,7 +30,12 @@ const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px;
-  padding: 0 5px;
+  padding: 0 5px 10px 5px;
   border-bottom: 1px solid ${({ theme }) => theme.color.gray2};
   height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;

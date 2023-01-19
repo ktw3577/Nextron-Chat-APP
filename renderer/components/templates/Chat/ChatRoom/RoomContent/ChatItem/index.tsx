@@ -13,7 +13,7 @@ type Props = {
 export default function ChatItem({ sender, text, timestamp }: Props) {
   const userEmail = auth?.currentUser?.email;
   const isMyChat = sender === userEmail;
-  const chatDate = timestamp.toDate().toLocaleTimeString().slice(0, 7);
+  const chatDate = timestamp?.toDate().toLocaleTimeString().slice(0, 7);
 
   return (
     <Layout isMyChat={isMyChat}>

@@ -1,23 +1,18 @@
 import styled from "styled-components";
-import LogInContent from "./LoginForm/LoginContent";
+import LogInContent from "./LoginContent";
 
 export default function LoginForm() {
   return (
     <Layout>
-      <Container>
-        <LogInContent />
-      </Container>
+      <LogInContent />
     </Layout>
   );
 }
 
 const Layout = styled.div`
+  background-color: ${({ theme }) => theme.color.primary};
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
-`;
-const Container = styled.div`
-  padding-top: 40px;
+  height: 100vh;
 `;

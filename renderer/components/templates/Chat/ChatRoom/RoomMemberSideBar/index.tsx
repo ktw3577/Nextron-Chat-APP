@@ -93,7 +93,7 @@ const Layout = styled.div<{ isOpen: boolean }>`
   justify-content: space-between;
   position: absolute;
   top: 0;
-  left: 55%;
+  left: 65%;
   z-index: 9999;
   width: ${({ isOpen }) => (isOpen ? "300px" : "0")};
   padding: 15px;

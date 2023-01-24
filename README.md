@@ -42,7 +42,7 @@ $ yarn dev
 
 | 회원가입                                                              |
 | -------------------------------------------------------------------------- |
-| <img src="https://i.ibb.co/FHWHgxz/Adobe-Express.gif" alt="Adobe-Express" border="0" width="700"> |
+| <img src="https://i.ibb.co/g98T4N5/Adobe-Express-1.gif" alt="signup" border="0" width="700"> |
 
 | 로그인                                                              |
 | -------------------------------------------------------------------------- |
@@ -50,16 +50,16 @@ $ yarn dev
 
 | 1:1채팅 초대                                                              |
 | -------------------------------------------------------------------------- |
-| <img src="https://i.ibb.co/KD4vLtD/Adobe-Express.gif" alt="Adobe-Express" border="0" width="700"> |
+|<img src="https://i.ibb.co/c2hm5Cf/Adobe-Express.gif" alt="chat-invite" border="0" width="700"> |
 
 | 1:1채팅                                                              |
 | -------------------------------------------------------------------------- |
-| <img src="https://i.ibb.co/c2hm5Cf/Adobe-Express.gif" alt="Adobe-Express" border="0" width="700"> |
+| <img src="https://i.ibb.co/KD4vLtD/Adobe-Express.gif" alt="chat" border="0" width="700"> |
 
 | 그룹채팅 초대                                                             |
 | -------------------------------------------------------------------------- |
-| <img src="https://i.ibb.co/VCVhPJ9/Adobe-Express.gif" alt="Adobe-Express" border="0" width="700"> |
+| <img src="https://i.ibb.co/VCVhPJ9/Adobe-Express.gif" alt="group-chat-invite" border="0" width="700"> |
 
 | 그룹채팅                                                             |
 | -------------------------------------------------------------------------- |
-| <img src="https://i.ibb.co/QKHwhf2/Adobe-Express.gif" alt="Adobe-Express" border="0" width="700">|
+| <img src="https://i.ibb.co/QKHwhf2/Adobe-Express.gif" alt="group-chat" border="0" width="700">|

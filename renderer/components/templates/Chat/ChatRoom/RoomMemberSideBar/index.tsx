@@ -9,16 +9,12 @@ import SearchIcon from "../../../../../assets/Icons/search.svg";
 import { useRouter } from "next/router";
 
 type Props = {
-  readonly roomMembers?: [string];
+  readonly roomMembers?: string[];
   readonly isOpen: boolean;
   readonly setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function RoomMemberSideBar({
-  roomMembers,
-  isOpen,
-  setIsOpen,
-}: Props) {
+export default function RoomMemberSideBar({ roomMembers, isOpen, setIsOpen }: Props) {
   const router = useRouter();
   const { id } = router.query;
   const [email, setEmail] = useState<string>("");
@@ -30,7 +26,7 @@ export default function RoomMemberSideBar({
     setEmail(email);
   };
 
-  const addMemberToChatRoom = async (roomMembers: [string], email: string) => {
+  const addMemberToChatRoom = async (roomMembers: string[], email: string) => {
     if (!email.length) return;
 
     try {
@@ -54,15 +50,8 @@ export default function RoomMemberSideBar({
             addMemberToChatRoom(roomMembers, email);
           }}
         >
-          <AddUserInput
-            type="email"
-            placeholder="추가할 유저 이메일을 입력해주세요."
-            value={email}
-            onChange={(e) => onChange(e.target.value)}
-          />
-          <ImageContainer
-            onClick={() => addMemberToChatRoom(roomMembers, email)}
-          >
+          <AddUserInput type="email" placeholder="추가할 유저 이메일을 입력해주세요." value={email} onChange={(e) => onChange(e.target.value)} />
+          <ImageContainer onClick={() => addMemberToChatRoom(roomMembers, email)}>
             <AddNewChatIcon src={SearchIcon} width={22} height={22} />
           </ImageContainer>
         </AddUserContainer>

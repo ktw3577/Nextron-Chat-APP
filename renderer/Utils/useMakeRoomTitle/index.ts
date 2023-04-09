@@ -1,9 +1,6 @@
 import { useMemo } from "react";
 
-export default function useMakeRoomTitle(
-  chatRoomMember: [string],
-  userEmail: string
-) {
+export default function useMakeRoomTitle(chatRoomMember: string[], userEmail: string) {
   if (!chatRoomMember) return;
 
   const filteredRoomMember = chatRoomMember.filter((member) => {

@@ -7,7 +7,7 @@ import GroupIcon from "../../../../../assets/Icons/group.svg";
 import { Dispatch, SetStateAction } from "react";
 
 type Props = {
-  readonly roomMembers?: [string];
+  readonly roomMembers?: string[];
   readonly setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -30,12 +30,7 @@ export default function Head({ roomMembers, setIsOpen }: Props) {
       </RoomContainer>
       <RoomOptionContainer>
         <ShowGroupButtonContainer>
-          <ShowGroupButton
-            src={GroupIcon}
-            width={40}
-            height={40}
-            onClick={onClick}
-          />
+          <ShowGroupButton src={GroupIcon} width={40} height={40} onClick={onClick} />
         </ShowGroupButtonContainer>
       </RoomOptionContainer>
     </Layout>

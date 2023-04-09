@@ -1,10 +1,4 @@
-import {
-  collection,
-  doc,
-  onSnapshot,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -13,25 +7,32 @@ import Head from "./Head";
 import RoomContent from "./RoomContent";
 import RoomMemberSideBar from "./RoomMemberSideBar";
 
+type MessageType = {
+  readonly sender: string;
+  readonly text: string;
+  readonly timestamp: string;
+};
+
+export type RoomMemberType = {
+  readonly users: string[];
+};
+
 export default function ChatRoom() {
-  const [messages, setMessages] = useState<any>();
-  const [roomMember, setRoomMember] = useState<any>();
+  const [messages, setMessages] = useState<MessageType[]>([]);
+  const [roomMember, setRoomMember] = useState<RoomMemberType>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const { id } = router.query;
 
   useEffect(() => {
     async function getMessage() {
-      onSnapshot(
-        query(collection(db, `chat/${id}/messages`), orderBy("timestamp")),
-        (snapshot) => {
-          const result = [];
-          snapshot.docs.forEach((messageSnap) => {
-            result.push(messageSnap.data());
-          });
-          setMessages(result);
-        }
-      );
+      onSnapshot(query(collection(db, `chat/${id}/messages`), orderBy("timestamp")), (snapshot) => {
+        const result = [];
+        snapshot.docs.forEach((messageSnap) => {
+          result.push(messageSnap.data());
+        });
+        setMessages(result);
+      });
     }
     getMessage();
   }, [id]);
@@ -40,7 +41,7 @@ export default function ChatRoom() {
     async function getChatMember() {
       const ref = doc(db, `chat/${id}`);
       onSnapshot(ref, (snapshot) => {
-        setRoomMember(snapshot.data());
+        setRoomMember(snapshot.data() as RoomMemberType);
       });
     }
     getChatMember();
@@ -52,13 +53,7 @@ export default function ChatRoom() {
         <Head roomMembers={roomMember?.users} setIsOpen={setIsOpen} />
         <RoomContent messages={messages} />
       </Content>
-      {isOpen ? (
-        <RoomMemberSideBar
-          roomMembers={roomMember?.users}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        />
-      ) : null}
+      {isOpen ? <RoomMemberSideBar roomMembers={roomMember?.users} isOpen={isOpen} setIsOpen={setIsOpen} /> : null}
     </Layout>
   );
 }
